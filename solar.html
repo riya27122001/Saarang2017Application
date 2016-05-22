@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Solar system</title>
+		<style type="text/css">
+		#animationSample1{
+		position: absolute;
+		top: 400px;
+		left: 450px;
+		width: 5px;
+		height: 5px;
+		border-radius: 50%;
+		background-color: #ffffff;
+		-webkit-animation: rot1 10s infinite linear;
+		
+		
+		
+		/*name duration iteration-count timing-function*/
+		}
+		#animationSample2{
+			position: absolute;
+			top: 400px;
+			left: 450px;
+			width: 5px;
+			height: 5px;
+			border-radius: 50%;
+			background-color: #ffffff;
+			-webkit-animation: rot2 15s infinite linear;
+			backface-visibility: hidden;
+			/*-webkit-transform-origin: 452.5px 402.5px 0px;*/
+		
+		/*name duration iteration-count timing-function*/
+		}
+		#animationSample3{
+			position: absolute;
+			top: 400px;
+			left: 450px;
+			width: 5px;
+			height: 5px;
+			border-radius: 50%;
+			background-color: #ffffff;
+			-webkit-animation: rot3 20s infinite linear;
+
+			backface-visibility: hidden;
+			/*-webkit-transform-origin: 452.5px 402.5px 0px;*/
+		
+		/*name duration iteration-count timing-function*/
+		}
+		.midcircle{
+			position: absolute;
+			top: 400px;
+			left: 450px;
+			width: 5px;
+			height: 5px;
+			border-radius: 50%;
+			background-color: #ffffff;
+			
+		
+		
+		}
+		.circle1{
+			position: absolute;
+			top: 350px;
+			left: 400px;
+			width: 100px;
+			height: 100px;
+			border-radius: 50%;
+			border-color: #ffffff;
+			
+			z-index: -100;
+			border-width: 2px;
+			border-style: solid;
+		
+		
+		}
+		.circle2{
+			position: absolute;
+			top: 300px;
+			left: 350px;
+			width: 200px;
+			height: 200px;
+			border-radius: 50%;
+			border-color: #ffffff;
+			
+			z-index: -100;
+			border-width: 2px;
+			border-style: solid;
+			
+		
+		
+		}
+		.circle3{
+			position: absolute;
+			top: 250px;
+			left: 300px;
+			width: 300px;
+			height: 300px;
+			border-radius: 50%;
+			border-color: #ffffff;
+			
+			z-index: -100;
+			border-width: 2px;
+			border-style: solid;
+		
+		
+		}
+		
+		@-webkit-keyframes rot1 {
+		    from { -webkit-transform: rotate(0deg) translateX(50px) rotate(0deg); }
+		    to   { -webkit-transform: rotate(360deg) translateX(50px) rotate(-360deg); }
+		}
+		@-webkit-keyframes rot2 {
+		    from { -webkit-transform: rotate(0deg) translateX(100px) rotate(0deg); }
+		    to   { -webkit-transform: rotate(360deg) translateX(100px) rotate(-360deg); }
+		}
+		@-webkit-keyframes rot3 {
+		    from { -webkit-transform: rotate(0deg) translateX(150px) rotate(0deg); }
+		    to   { -webkit-transform: rotate(360deg) translateX(150px) rotate(-360deg); }
+		}
+	</style>
+</head>
+<body style="background-color: #ff8000">
+
+	<div id="animationSample1"></div> 
+	<div id="animationSample2"></div>
+	<div id="animationSample3"></div> 
+	<div class="midcircle"></div>
+	<div class="circle1"></div>
+	<div class="circle2"></div>
+	<div class="circle3"></div>
+</body>
+</html>
