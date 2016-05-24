@@ -6,11 +6,13 @@
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
 	<script type="text/javascript" src="jquery-2.2.0.min.js"></script>
 	<style type="text/css">
+	/*Body formatting*/
 		body {
 		    font: 20px "Montserrat", sans-serif;
 		    line-height: 1.8;
 		    color: #f5f6f7;
 		}
+	/*Innermost circle*/	
 
 		#animationSample1{
 		
@@ -18,59 +20,56 @@
 		height: 5px;
 		border-radius: 50%;
 		background-color: #ffffff;
-		/*-webkit-animation: rot1 10s infinite linear;*/
 		
-		
-		
-		/*name duration iteration-count timing-function*/
 		}
+	/*Middle circle*/	
 		#animationSample2{
 			
 			width: 5px;
 			height: 5px;
 			border-radius: 50%;
 			background-color: #ffffff;
-			/*-webkit-animation: rot2 15s infinite linear;*/
 			
-		
-		/*name duration iteration-count timing-function*/
 		}
+	/*Outermost circle*/	
 		#animationSample3{
 			
 			width: 5px;
 			height: 5px;
 			border-radius: 50%;
 			background-color: #ffffff;
-			/*-webkit-animation: rot3 20s infinite linear;*/
-
 			
-		
-		/*name duration iteration-count timing-function*/
 		}
+	/*Animation for innermost circle*/	
 		.r1{
 			position: absolute;
 			top: 400px;
 			left: 450px;
 			-webkit-animation: rot1 10s infinite linear;
 		}
+	/*Animation for middle circle*/	
 		.r2{
 			position: absolute;
 			top: 400px;
 			left: 450px;
 			-webkit-animation: rot2 15s infinite linear;
 		}
+	/*Animation for Outermost circle*/	
 		.r3{
 			position: absolute;
 			top: 400px;
 			left: 450px;
 			-webkit-animation: rot3 20s infinite linear;
 		}
+	/*Start animation*/	
 		.st{
 			-webkit-animation-play-state: running;
 		}
+	/*Stop animation*/
 		.sp{
 			-webkit-animation-play-state: paused;
 		}
+	/*Centre object*/	
 
 		.midcircle{
 			position: absolute;
@@ -84,6 +83,7 @@
 		
 		
 		}
+	/*Innermost orbit*/	
 		.circle1{
 			position: absolute;
 			top: 352.5px;
@@ -99,6 +99,7 @@
 		
 		
 		}
+	/*Middle orbit*/		
 		.circle2{
 			position: absolute;
 			top: 302.5px;
@@ -115,6 +116,7 @@
 		
 		
 		}
+	/*Outermost orbit*/		
 		.circle3{
 			position: absolute;
 			top: 252.5px;
@@ -130,15 +132,17 @@
 		
 		
 		}
-		
+	/*Keyframes for innermost planet animation*/	
 		@-webkit-keyframes rot1 {
 		    from { -webkit-transform: rotate(0deg) translateX(50px); }
 		    to   { -webkit-transform: rotate(360deg) translateX(50px); }
 		}
+	/*Keyframes for middle planet animation*/	
 		@-webkit-keyframes rot2 {
 		    from { -webkit-transform: rotate(0deg) translateX(100px); }
 		    to   { -webkit-transform: rotate(360deg) translateX(100px); }
 		}
+	/*Keyframes for outermost planet animation*/	
 		@-webkit-keyframes rot3 {
 		    from { -webkit-transform: rotate(0deg) translateX(150px); }
 		    to   { -webkit-transform: rotate(360deg) translateX(150px); }
@@ -146,32 +150,37 @@
 	</style>
 </head>
 <body style="background-color: #ff8000">
-
+<!-- Planets -->
 	<div id="animationSample1" class="r1 sp"></div> 
 	<div id="animationSample2" class="r2 sp"></div>
 	<div id="animationSample3" class="r3 sp"></div> 
 	<div class="midcircle"></div>
+<!-- Orbits -->	
 	<div class="circle1"></div>
 	<div class="circle2"></div>
 	<div class="circle3"></div>
+<!-- Control buttons for all planets -->	
 	<div style="position: absolute; top: 50px; left: 700px;">All planets:</div>
 	<div class="btn-group" role="group" aria-label="..." style="position: absolute; top: 50px; left: 900px;">
 	  <button type="button" class="btn btn-primary" id="sta">Start</button>
 	  <button type="button" class="btn btn-info" id="spa">Stop</button>
 	  <button type="button" class="btn btn-warning" id="rea">Reset</button>
 	</div>
+<!-- Control buttons for innermost planet -->	
 	<div style="position: absolute; top: 100px; left: 700px;">Innermost planet:</div>
 	<div class="btn-group" role="group" aria-label="..." style="position: absolute; top: 100px; left: 900px;">
 	  <button type="button" class="btn btn-primary" id="st1">Start</button>
 	  <button type="button" class="btn btn-info" id="sp1">Stop</button>
 	  <button type="button" class="btn btn-warning" id="re1">Reset</button>
 	</div>
+<!-- Control buttons for middle planet -->	
 	<div style="position: absolute; top: 150px; left: 700px;">Middle planet:</div>
 	<div class="btn-group" role="group" aria-label="..." style="position: absolute; top: 150px; left: 900px;">
 	  <button type="button" class="btn btn-primary" id="st2">Start</button>
 	  <button type="button" class="btn btn-info" id="sp2">Stop</button>
 	  <button type="button" class="btn btn-warning" id="re2">Reset</button>
 	</div>
+<!-- Control buttons for outermost planet -->	
 	<div style="position: absolute; top: 200px; left: 700px;">Outermost planet:</div>
 	<div class="btn-group" role="group" aria-label="..." style="position: absolute; top: 200px; left: 900px;">
 	  <button type="button" class="btn btn-primary" id="st3">Start</button>
@@ -180,7 +189,7 @@
 	</div>
 	<script type="text/javascript">
 		 $(function () {
-		 	
+		 // Start function for all planets	
 		 	$("#sta").click(function stfna(){
 		 				
 		 					console.log('fn');
@@ -200,6 +209,7 @@
 		 				}
 				
 		 			);
+		 	// Stop function for all planets	
 		 	$("#spa").click(function spfna(){
 						
      					if (!$('#animationSample1').hasClass("sp")) {
@@ -213,6 +223,7 @@
 			 					$('#animationSample3').addClass("sp");
 			 				}
 		 			});
+		 	// Reset function for all planets	
 		 	$("#rea").click(function refna(){
 
      		 			if ($('#animationSample1').hasClass("r1")) {
@@ -244,6 +255,7 @@
 		 					}
 			 			}, 500);	
 		 			});
+		 	// Start function for innermost planet
 		 	$("#st1").click(function (){
 		 				
 		 					
@@ -255,6 +267,7 @@
 		 				}
 				
 		 			);
+		 	// Stop function for innermost planet
 		 	$("#sp1").click(function (){
 						
      					if (!$('#animationSample1').hasClass("sp")) {
@@ -262,6 +275,7 @@
 			 				}
 			 			
 		 			});
+		 	// Reset function for innermost planet
 		 	$("#re1").click(function (){
 
      		 			if ($('#animationSample1').hasClass("r1")) {
@@ -278,6 +292,7 @@
 			 				
 			 			}, 100);	
 		 			});
+		 	// Start function for middle planet
 		 	$("#st2").click(function (){
 		 				
 		 					
@@ -289,6 +304,7 @@
 		 				}
 				
 		 			);
+		 	// Stop function for middle planet
 		 	$("#sp2").click(function (){
 						
      					if (!$('#animationSample2').hasClass("sp")) {
@@ -296,6 +312,7 @@
 			 				}
 			 			
 		 			});
+		 	// Reset function for middle planet
 		 	$("#re2").click(function (){
 
      		 			if ($('#animationSample2').hasClass("r2")) {
@@ -312,6 +329,7 @@
 			 				
 			 			}, 100);	
 		 			});
+		 	// Start function for outermost planet
 		 	$("#st3").click(function (){
 		 				
 		 					
@@ -323,6 +341,7 @@
 		 				}
 				
 		 			);
+		 	// Stop function for outermost planet
 		 	$("#sp3").click(function (){
 						
      					if (!$('#animationSample3').hasClass("sp")) {
@@ -330,6 +349,7 @@
 			 				}
 			 			
 		 			});
+		 	// Reset function for outermost planet
 		 	$("#re3").click(function (){
 
      		 			if ($('#animationSample3').hasClass("r3")) {
