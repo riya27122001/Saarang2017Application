@@ -2,50 +2,76 @@
 <html>
 <head>
 	<title>Solar system</title>
-		<style type="text/css">
+	<link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+	<script type="text/javascript" src="jquery-2.2.0.min.js"></script>
+	<style type="text/css">
+		body {
+		    font: 20px "Montserrat", sans-serif;
+		    line-height: 1.8;
+		    color: #f5f6f7;
+		}
+
 		#animationSample1{
-		position: absolute;
-		top: 400px;
-		left: 450px;
+		
 		width: 5px;
 		height: 5px;
 		border-radius: 50%;
 		background-color: #ffffff;
-		-webkit-animation: rot1 10s infinite linear;
+		/*-webkit-animation: rot1 10s infinite linear;*/
 		
 		
 		
 		/*name duration iteration-count timing-function*/
 		}
 		#animationSample2{
-			position: absolute;
-			top: 400px;
-			left: 450px;
+			
 			width: 5px;
 			height: 5px;
 			border-radius: 50%;
 			background-color: #ffffff;
-			-webkit-animation: rot2 15s infinite linear;
-			backface-visibility: hidden;
-			/*-webkit-transform-origin: 452.5px 402.5px 0px;*/
+			/*-webkit-animation: rot2 15s infinite linear;*/
+			
 		
 		/*name duration iteration-count timing-function*/
 		}
 		#animationSample3{
-			position: absolute;
-			top: 400px;
-			left: 450px;
+			
 			width: 5px;
 			height: 5px;
 			border-radius: 50%;
 			background-color: #ffffff;
-			-webkit-animation: rot3 20s infinite linear;
+			/*-webkit-animation: rot3 20s infinite linear;*/
 
-			backface-visibility: hidden;
-			/*-webkit-transform-origin: 452.5px 402.5px 0px;*/
+			
 		
 		/*name duration iteration-count timing-function*/
 		}
+		.r1{
+			position: absolute;
+			top: 400px;
+			left: 450px;
+			-webkit-animation: rot1 10s infinite linear;
+		}
+		.r2{
+			position: absolute;
+			top: 400px;
+			left: 450px;
+			-webkit-animation: rot2 15s infinite linear;
+		}
+		.r3{
+			position: absolute;
+			top: 400px;
+			left: 450px;
+			-webkit-animation: rot3 20s infinite linear;
+		}
+		.st{
+			-webkit-animation-play-state: running;
+		}
+		.sp{
+			-webkit-animation-play-state: paused;
+		}
+
 		.midcircle{
 			position: absolute;
 			top: 400px;
@@ -60,8 +86,8 @@
 		}
 		.circle1{
 			position: absolute;
-			top: 350px;
-			left: 400px;
+			top: 352.5px;
+			left: 402.5px;
 			width: 100px;
 			height: 100px;
 			border-radius: 50%;
@@ -75,8 +101,8 @@
 		}
 		.circle2{
 			position: absolute;
-			top: 300px;
-			left: 350px;
+			top: 302.5px;
+			left: 352.5px;
 			width: 200px;
 			height: 200px;
 			border-radius: 50%;
@@ -91,8 +117,8 @@
 		}
 		.circle3{
 			position: absolute;
-			top: 250px;
-			left: 300px;
+			top: 252.5px;
+			left: 302.5px;
 			width: 300px;
 			height: 300px;
 			border-radius: 50%;
@@ -121,12 +147,207 @@
 </head>
 <body style="background-color: #ff8000">
 
-	<div id="animationSample1"></div> 
-	<div id="animationSample2"></div>
-	<div id="animationSample3"></div> 
+	<div id="animationSample1" class="r1 sp"></div> 
+	<div id="animationSample2" class="r2 sp"></div>
+	<div id="animationSample3" class="r3 sp"></div> 
 	<div class="midcircle"></div>
 	<div class="circle1"></div>
 	<div class="circle2"></div>
 	<div class="circle3"></div>
+	<div style="position: absolute; top: 50px; left: 700px;">All planets:</div>
+	<div class="btn-group" role="group" aria-label="..." style="position: absolute; top: 50px; left: 900px;">
+	  <button type="button" class="btn btn-primary" id="sta">Start</button>
+	  <button type="button" class="btn btn-info" id="spa">Stop</button>
+	  <button type="button" class="btn btn-warning" id="rea">Reset</button>
+	</div>
+	<div style="position: absolute; top: 100px; left: 700px;">Innermost planet:</div>
+	<div class="btn-group" role="group" aria-label="..." style="position: absolute; top: 100px; left: 900px;">
+	  <button type="button" class="btn btn-primary" id="st1">Start</button>
+	  <button type="button" class="btn btn-info" id="sp1">Stop</button>
+	  <button type="button" class="btn btn-warning" id="re1">Reset</button>
+	</div>
+	<div style="position: absolute; top: 150px; left: 700px;">Middle planet:</div>
+	<div class="btn-group" role="group" aria-label="..." style="position: absolute; top: 150px; left: 900px;">
+	  <button type="button" class="btn btn-primary" id="st2">Start</button>
+	  <button type="button" class="btn btn-info" id="sp2">Stop</button>
+	  <button type="button" class="btn btn-warning" id="re2">Reset</button>
+	</div>
+	<div style="position: absolute; top: 200px; left: 700px;">Outermost planet:</div>
+	<div class="btn-group" role="group" aria-label="..." style="position: absolute; top: 200px; left: 900px;">
+	  <button type="button" class="btn btn-primary" id="st3">Start</button>
+	  <button type="button" class="btn btn-info" id="sp3">Stop</button>
+	  <button type="button" class="btn btn-warning" id="re3">Reset</button>
+	</div>
+	<script type="text/javascript">
+		 $(function () {
+		 	
+		 	$("#sta").click(function stfna(){
+		 				
+		 					console.log('fn');
+		 					if ($('#animationSample1').hasClass("sp")) {
+			 					$('#animationSample1').removeClass("sp");
+			 					$('#animationSample1').addClass("st");
+		 					}
+			 				if ($('#animationSample2').hasClass("sp")) {
+			 					$('#animationSample2').removeClass("sp");
+			 					$('#animationSample2').addClass("st");
+		 					}
+		 				
+			 				if ($('#animationSample3').hasClass("sp")) {
+			 					$('#animationSample3').removeClass("sp");
+			 					$('#animationSample3').addClass("st");
+		 					}
+		 				}
+				
+		 			);
+		 	$("#spa").click(function spfna(){
+						
+     					if (!$('#animationSample1').hasClass("sp")) {
+			 					$('#animationSample1').addClass("sp");
+			 				}
+			 			if (!$('#animationSample2').hasClass("sp")) {
+			 					$('#animationSample2').addClass("sp");
+			 				}
+		 				
+			 			if (!$('#animationSample3').hasClass("sp")) {
+			 					$('#animationSample3').addClass("sp");
+			 				}
+		 			});
+		 	$("#rea").click(function refna(){
+
+     		 			if ($('#animationSample1').hasClass("r1")) {
+			 			 		$('#animationSample1').removeClass("r1");
+			 			 	}
+			 			if ($('#animationSample2').hasClass("r2")) {
+			 			 		$('#animationSample2').removeClass("r2");
+			 			 	}
+		 				
+			 			if ($('#animationSample3').hasClass("r3")) {
+			 			 		$('#animationSample3').removeClass("r3");
+			 			 	}
+			 			setTimeout(function () {
+			 				$('#animationSample1').addClass("r1");
+			 				$('#animationSample2').addClass("r2");
+			 				$('#animationSample3').addClass("r3");
+			 				if ($('#animationSample1').hasClass("sp")) {
+			 					$('#animationSample1').removeClass("sp");
+			 					$('#animationSample1').addClass("st");
+		 					}
+			 				if ($('#animationSample2').hasClass("sp")) {
+			 					$('#animationSample2').removeClass("sp");
+			 					$('#animationSample2').addClass("st");
+		 					}
+		 				
+			 				if ($('#animationSample3').hasClass("sp")) {
+			 					$('#animationSample3').removeClass("sp");
+			 					$('#animationSample3').addClass("st");
+		 					}
+			 			}, 500);	
+		 			});
+		 	$("#st1").click(function (){
+		 				
+		 					
+		 					if ($('#animationSample1').hasClass("sp")) {
+			 					$('#animationSample1').removeClass("sp");
+			 					$('#animationSample1').addClass("st");
+		 					}
+			 				
+		 				}
+				
+		 			);
+		 	$("#sp1").click(function (){
+						
+     					if (!$('#animationSample1').hasClass("sp")) {
+			 					$('#animationSample1').addClass("sp");
+			 				}
+			 			
+		 			});
+		 	$("#re1").click(function (){
+
+     		 			if ($('#animationSample1').hasClass("r1")) {
+			 			 		$('#animationSample1').removeClass("r1");
+			 			 	}
+			 			
+			 			setTimeout(function () {
+			 				$('#animationSample1').addClass("r1");
+			 				
+			 				if ($('#animationSample1').hasClass("sp")) {
+			 					$('#animationSample1').removeClass("sp");
+			 					$('#animationSample1').addClass("st");
+		 					}
+			 				
+			 			}, 100);	
+		 			});
+		 	$("#st2").click(function (){
+		 				
+		 					
+		 					if ($('#animationSample2').hasClass("sp")) {
+			 					$('#animationSample2').removeClass("sp");
+			 					$('#animationSample2').addClass("st");
+		 					}
+			 				
+		 				}
+				
+		 			);
+		 	$("#sp2").click(function (){
+						
+     					if (!$('#animationSample2').hasClass("sp")) {
+			 					$('#animationSample2').addClass("sp");
+			 				}
+			 			
+		 			});
+		 	$("#re2").click(function (){
+
+     		 			if ($('#animationSample2').hasClass("r2")) {
+			 			 		$('#animationSample2').removeClass("r2");
+			 			 	}
+			 			
+			 			setTimeout(function () {
+			 				$('#animationSample2').addClass("r2");
+			 				
+			 				if ($('#animationSample2').hasClass("sp")) {
+			 					$('#animationSample2').removeClass("sp");
+			 					$('#animationSample2').addClass("st");
+		 					}
+			 				
+			 			}, 100);	
+		 			});
+		 	$("#st3").click(function (){
+		 				
+		 					
+		 					if ($('#animationSample3').hasClass("sp")) {
+			 					$('#animationSample3').removeClass("sp");
+			 					$('#animationSample3').addClass("st");
+		 					}
+			 				
+		 				}
+				
+		 			);
+		 	$("#sp3").click(function (){
+						
+     					if (!$('#animationSample3').hasClass("sp")) {
+			 					$('#animationSample3').addClass("sp");
+			 				}
+			 			
+		 			});
+		 	$("#re3").click(function (){
+
+     		 			if ($('#animationSample3').hasClass("r3")) {
+			 			 		$('#animationSample3').removeClass("r3");
+			 			 	}
+			 			
+			 			setTimeout(function () {
+			 				$('#animationSample3').addClass("r3");
+			 				
+			 				if ($('#animationSample3').hasClass("sp")) {
+			 					$('#animationSample3').removeClass("sp");
+			 					$('#animationSample3').addClass("st");
+		 					}
+			 				
+			 			}, 100);	
+		 			});
+		 });
+	</script>
+	
 </body>
 </html>
